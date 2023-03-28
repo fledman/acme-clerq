@@ -65,4 +65,6 @@ Due to the intermittent failures of the ACME server, there is basic retry functi
 ### Convenience
 An endpoint for listing all available merchants is available via `GET /api/merchants`
 
+A Ruby REPL with the code loaded can be launched in terminal via `bin/console`
+
 
