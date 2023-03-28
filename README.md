@@ -60,6 +60,8 @@ Due to the intermittent failures of the ACME server, there is basic retry functi
 
 [lib/acme/settlement.rb](lib/acme/settlement.rb) performs the settlement computations.
 
+[app/api_application.rb](app/api_application.rb) contains the REST API definition.
+
 ### Convenience
 An endpoint for listing all available merchants is available via `GET /api/merchants`
 
