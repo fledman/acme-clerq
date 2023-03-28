@@ -8,5 +8,7 @@ gem "rspec", "~> 3.0"
 gem "faraday-typhoeus", "~> 1"
 gem "sinatra", "~> 3"
 gem "sinatra-contrib"
-gem "rake"
+gem "rack"
+gem "rack-parser", require: 'rack/parser'
 gem "puma"
+gem "activesupport"

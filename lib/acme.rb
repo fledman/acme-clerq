@@ -8,6 +8,7 @@ module Acme
 
   AcmeError = Class.new(StandardError)
   LookupError = Class.new(AcmeError)
+  ApiError = Class.new(AcmeError)
 end
 
 def require_directory(directory, root: Acme::LIB, recursive: true)
@@ -17,10 +18,15 @@ def require_directory(directory, root: Acme::LIB, recursive: true)
 end
 
 require "faraday/typhoeus"
-
 Faraday.default_adapter = :typhoeus
+
+require "active_support"
+require "active_support/core_ext/date"
+require "active_support/core_ext/time"
+Time.zone = 'UTC'
 
 require "acme/connect"
 require "acme/lookup"
+require "acme/settlement"
 
 require_directory "acme/models"

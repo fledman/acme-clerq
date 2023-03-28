@@ -34,8 +34,9 @@ module Acme
       resp = connection.get(path, params)
       return JSON.parse(resp.body) if resp.success?
       left = tries - 1
-      return fetch(path:, params:, tries: left) if left > 0
-      ERROR.new(status: resp.status, response: resp)
+      return ERROR.new(status: resp.status, response: resp) if left <= 0
+      sleep(0.2)
+      fetch(path:, params:, tries: left)
     end
 
   end
