@@ -51,3 +51,16 @@ will produce a response that looks like:
 ### Unreliability
 Due to the intermittent failures of the ACME server, there is basic retry functionality baked into the request handling.
 
+### Code Layout
+[lib/acme/models](lib/acme/models) contains data classes for Consumer, Merchant, Order, and Transaction.
+
+[lib/acme/connect.rb](lib/acme/connect.rb) handles actual http requests and retry behavior.
+
+[lib/acme/lookup.rb](lib/acme/lookup.rb) handles pagination and binds response data into models.
+
+[lib/acme/settlement.rb](lib/acme/settlement.rb) performs the settlement computations.
+
+### Convenience
+An endpoint for listing all available merchants is available via `GET /api/merchants`
+
+

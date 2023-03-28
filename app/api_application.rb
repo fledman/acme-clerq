@@ -39,6 +39,10 @@ class ApiApplication < Sinatra::Base
     json(params.select{ |k,_| k.is_a?(String) })
   end
 
+  get '/merchants' do
+    json(Acme::Lookup.merchants.map(&:to_h))
+  end
+
   post '/settle' do
     merchant_input, date = params['merchant'], params['date']
     result = Acme::Settlement.execute(merchant_input:, date:)
