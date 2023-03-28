@@ -10,7 +10,11 @@ RSpec.describe Acme do
     expect(Acme::AcmeError).to be < StandardError
   end
 
-  xit "requires the core modules" do
-    expect(defined?(Acme::SomeImport)).to eql("constant")
+  it "requires the core modules" do
+    expect(defined?(Acme::Connect)).to eql("constant")
+    expect(defined?(Acme::Lookup)).to eql("constant")
+    expect(defined?(Acme::Settlement)).to eql("constant")
+    expect(defined?(Acme::Models::Merchant)).to eql("constant")
+    expect(defined?(Acme::Models::Transaction)).to eql("constant")
   end
 end
